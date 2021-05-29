@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <context-param>
+        <param-name>userSessionKey</param-name>
+        <param-value>userType</param-value>
+    </context-param>
+    <context-param>
+        <param-name>userIdSessionKey</param-name>
+        <param-value>userId</param-value>
+    </context-param>
+    <context-param>
+        <param-name>redirectPage</param-name>
+        <param-value>/alert.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>uncheckedUrls</param-name>
+        <param-value>/alert.jsp,/loginPage.jsp,/LoginServlet,/loginError.jsp
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>customerUrls</param-name>
+        <param-value>
+            /userInterface/customerDetails.jsp,/cusMessage/addComment.jsp,/cusMessage/checkComment.jsp,/cusMessage/idMessage.jsp,/carMessage/idMessage.jsp,cusMessage/customerUpResult.jsp
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>salesmanUrls</param-name>
+        <param-value>
+            /userInterface/salesmanDetails.jsp,/cusMessage/customerSearchRS.jsp,/cusMessage/customerUpdate.jsp,/cusMessage/customerUpResult.jsp,/cusMessage/addCustomer.jsp,/saMessage/idMessage.jsp,/carMessage/addCar.jsp,/carMessage/carQueryAll.jsp,/carMessage/carSearchRS.jsp,/carMessage/carUpdate.jsp,/carMessage/carUpResult.jsp
+        </param-value>
+    </context-param>
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.ncarsalesys.login.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <welcome-file-list>
+        <welcome-file>/loginPage.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
